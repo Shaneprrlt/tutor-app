@@ -1,0 +1,35 @@
+<div class="form-container">
+  <h2 class="text-muted">Create Appointment</h2>
+  <form method="post" action="/appointments">
+    <fieldset>
+      <% if params[:schedule_conflict] %>
+      <div class="form-group">
+        <div class="alert alert-danger">Tutor has an appointment at this time.</div>
+      </div>
+      <% end %>
+      <div class="form-group">
+        <label for="name">Tutor</label>
+        <select name="tutor_id" class="form-control">
+          <% @tutors.each do |tutor| %>
+          <option value="<%= tutor.id %>"><%= tutor.name %></option>
+          <% end %>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="where">Location</label>
+        <input type="text" name="where" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="when_date">Date</label>
+        <input type="date" name="when_date" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="when_time">Time</label>
+        <input type="time" name="when_time" class="form-control" />
+      </div>
+      <div class="form-group">
+        <input type="submit" name="submit" class="btn btn-primary" value="Save" />
+      </div>
+    </fieldset>
+  </form>
+</div>

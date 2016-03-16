@@ -1,0 +1,62 @@
+<div>
+
+  <div class="page-header">
+    <h1>Appointments <small>
+      <% if @user.type == "Tutor" %>
+      with students
+      <% else %>
+      with tutors
+      <% end %>
+    </small>
+
+      <% if @user.type == "Student" %>
+      <a href="/appointments/new" class="btn btn-success pull-right">Create Appointment</a>
+      <% end %>
+    </h1>
+  </div>
+
+
+  <div class="appointments">
+
+    <% if @appointments.count == 0 %>
+    <h3 class="text-muted">No appointments scheduled.</h3>
+    <% else %>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <td>When</td>
+          <td>Where</td>
+          <% if @user.type == "Student" %>
+          <td>Tutor</td>
+          <% else %>
+          <td>Student</td>
+          <td>Attended</td>
+          <% end %>
+          <td>Actions</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @appointments.each do |appt| %>
+        <tr class="<%= appt.student_attended ? "active" : nil %>">
+          <td><%= appt.when.strftime('%A, %B %d, %Y at %I:%M %p') %></td>
+          <td><%= appt.where %></td>
+          <% if @user.type == "Student" %>
+          <td><%= appt.tutor.name %></td>
+          <% else %>
+          <td><%= appt.student.name %></td>
+          <td style="text-align: center;">
+            <input type="checkbox" id="<%= appt.id %>" class="mark-attended" <%= appt.student_attended ? "checked" : nil %> />
+          </td>
+          <% end %>
+          <td>
+          <a href="#" id="<%= appt.id %>" class="cancel-appt-button">Cancel</a>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <% end %>
+
+  </div>
+
+</div>

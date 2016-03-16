@@ -1,0 +1,70 @@
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.container {
+  width: 750px;
+}
+
+.form-container {
+  padding: 20px 0px;
+  width: 425px;
+  margin: 0 auto;
+}
+
+.heading {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+}
+
+.heading h3 {
+  margin-top: 0;
+  line-height: 40px;
+}
+
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.appointments h3 {
+  padding: 100px 0px;
+  text-align: center;
+}
+
+.page-header input[type=text] {
+  width: 250px;
+  margin-right: 20px;
+}
+
+.content-window {
+  padding-bottom: 25px;
+}
+
+.search-results-container {
+  width: 250px;
+  background: #E6E6E6;
+  position: absolute;
+  right: calc(50% - 224px);
+  border-radius: 3px;
+  font-size: 20px;
+  overflow: hidden;
+}
+
+.search-results-container > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.search-results-container > ul > li {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.search-results-container > ul > li:hover {
+  background: #CACACA;
+}
